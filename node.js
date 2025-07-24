@@ -2,9 +2,9 @@ const http = require("http");
 const WebSocket = require("ws");
 const net = require("net");
 
-// ==== config ====
-const C_SERVER_PORT = 9999;            // 傳給 C server
-const C_SERVER_IP = "127.0.0.1";       // 如果在同一台機器就保持這樣
+// ==== config ====            
+const C_SERVER_PORT = 14091;                   // 傳給 C server
+const C_SERVER_IP = "0.tcp.jp.ngrok.io";       // 如果在同一台機器就保持這樣
 
 // ==== 建立 HTTP server（讓 Railway 知道要 expose 這個 port）====
 const server = http.createServer((req, res) => {
