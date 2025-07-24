@@ -1,28 +1,18 @@
 {
-  "name": "restaurant-websocket-relay",
+  "name": "relay-server",
   "version": "1.0.0",
-  "description": "WebSocket relay server for restaurant ordering system",
-  "main": "node.js",
+  "description": "WebSocket to TCP Relay Server",
+  "main": "server.js",
   "scripts": {
-    "start": "node node.js",
-    "dev": "nodemon node.js"
+    "start": "node server.js"
   },
   "dependencies": {
-    "ws": "^8.14.2",
-    "express": "^4.18.2"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.2"
+    "ws": "^8.18.3"
   },
   "engines": {
     "node": ">=16.0.0"
   },
-  "keywords": [
-    "websocket",
-    "restaurant",
-    "ordering",
-    "relay"
-  ],
-  "author": "Danny",
-  "license": "MIT"
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
