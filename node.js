@@ -2,17 +2,12 @@ const http = require("http");
 const WebSocket = require("ws");
 const net = require("net");
 
-// ==== config ====            
-const C_SERVER_PORT = 14091;                   // 傳給本機 ngrok 的 port
-const C_SERVER_IP = "0.tcp.jp.ngrok.io";       // ngrok 的公開 IP（給 C Server 用）
+// ==== config ====
+const C_SERVER_PORT = 14091;                   // 傳給 C server
+const C_SERVER_IP = "0.tcp.jp.ngrok.io";       // ngrok TCP 轉發的主機名稱
 
 // ==== 建立 HTTP server（讓 Railway 知道要 expose 這個 port）====
 const server = http.createServer((req, res) => {
-  // ✅ 加入 CORS header 讓 GitHub Pages 可連線
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
   res.writeHead(200);
   res.end("WebSocket Relay Server is running.");
 });
@@ -41,7 +36,7 @@ wss.on("connection", (ws) => {
 });
 
 // ==== 啟動 HTTP + WebSocket Server ====
-const PORT = process.env.PORT || 8888;
-server.listen(PORT, () => {
+const PORT = process.env.PORT || 8080;
+server.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ WebSocket Relay Server listening on port ${PORT}`);
 });
